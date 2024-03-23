@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["maxbbb88@gmail.com"]
 
   spec.summary = "Generator of forms."
-  spec.description = "Generator of forms."
+  spec.description = "Generator of forms and creating tags."
   spec.homepage = "https://github.com/manzhaimaksim/rails-project-63"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
@@ -17,8 +17,8 @@ Gem::Specification.new do |spec|
   spec.metadata["allowed_push_host"] = "Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/manzhaimaksim/rails-project-63"
-  spec.metadata["changelog_uri"] = "https://github.com/manzhaimaksim/rails-project-63"
+  # spec.metadata["source_code_uri"] = "https://github.com/manzhaimaksim/rails-project-63"
+  # spec.metadata["changelog_uri"] = "https://github.com/manzhaimaksim/rails-project-63"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
