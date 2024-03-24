@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/manzhaimaksim/rails-project-63.svg?token=ENV['TRAVIS_TOKEN']&branch=main)](https://app.travis-ci.com/manzhaimaksim/rails-project-63)
+
 # HexletCode
 
 TODO: Delete this and the text below, and describe your gem
