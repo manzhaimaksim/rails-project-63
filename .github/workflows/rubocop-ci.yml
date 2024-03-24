@@ -1,5 +1,5 @@
 # .github/workflows/rubocop-ci.yml
-name: Rubocop
+name: CI
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: CI Rubocop
+    name: CI Rubocop and test
     runs-on: ubuntu-latest
     env:
       api-dir: ./
@@ -19,10 +19,15 @@ jobs:
         with:
           ruby-version: 3.3.0
           bundler-cache: true
+
       - name: Run bundle install
         working-directory: ${{env.api-dir}}
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
+
       - name: Check Rubocop Styles
-        run: bundle exec rubocop
+        run: make lint
+
+      - name: Run test
+        run: make test
