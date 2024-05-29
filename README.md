@@ -1,7 +1,5 @@
 [![Build Status](https://app.travis-ci.com/manzhaimaksim/rails-project-63.svg?token=gqxwsEFqeqktvyYvCQ6D&branch=main)](https://app.travis-ci.com/manzhaimaksim/rails-project-63)
 
-![CI status](https://github.com/manzhaimaksim/rails-project-63/.github/workflows/hexlet-check.yml/badge.svg/badge.svg)
-
 # HexletCode
 
 TODO: Delete this and the text below, and describe your gem

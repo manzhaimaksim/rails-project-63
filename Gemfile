@@ -5,7 +5,6 @@ source "https://rubygems.org"
 # Specify your gem's dependencies in hexlet_code.gemspec
 gemspec
 
-gem "dotenv-rails"
 gem "minitest", "~> 5.16"
 gem "rake", "~> 13.0"
 gem "rubocop", "~> 1.62.1"
