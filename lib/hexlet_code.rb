@@ -5,12 +5,15 @@ require_relative "hexlet_code/version"
 # module HexletCode for generating tags
 module HexletCode
   autoload(:Tag, "./lib/tag.rb")
+  autoload(:FormContent, './lib/form_content.rb')
 
-  def self.form_for(*args)
-    if args[1].nil?
-      "<form action=\"#\" method=\"post\"></form>"
-    else
-      "<form action=\"#{args[1][:url]}\" method=\"post\"></form>"
-    end
+  def self.form_for(fields_data = {}, attributes = {})
+    url = (attributes.is_a?(Hash) ? attributes.fetch(:url, '#') : attributes)
+    attrs = { action: url, method: 'post' }
+    attrs.merge!(attributes) if attributes.is_a?(Hash)
+    attrs.delete(:url)
+    content = FormContent.new(fields_data, Tag)
+    yield(content) if block_given?
+    Tag.build('form', attrs) { content if block_given? }
   end
 end
