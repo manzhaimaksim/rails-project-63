@@ -26,7 +26,9 @@ class TestHexletCode < Minitest::Test
   end
 
   def test_that_the_passed_fields_are_generated
+    # rubocop:disable Layout/LineLength
     expected = "<form action=\"#\" method=\"post\"><label for=\"name\">Name</label><input type=\"text\" name=\"name\" value=\"rob\" /><label for=\"job\">Job</label><textarea cols=\"20\" rows=\"40\" name=\"job\">Hexlet</textarea></form>"
+    # rubocop:enable Layout/LineLength
     actual = HexletCode.form_for @user do |f|
       f.input :name
       f.input :job, as: :text
@@ -36,7 +38,9 @@ class TestHexletCode < Minitest::Test
   end
 
   def test_that_additional_arguments_can_be_passed_as_a_hash
+    # rubocop:disable Layout/LineLength
     expected = "<form action=\"#\" method=\"post\"><label for=\"name\">Name</label><input type=\"text\" class=\"user-input\" name=\"name\" value=\"rob\" /><label for=\"job\">Job</label><input type=\"text\" name=\"job\" value=\"Hexlet\" /></form>"
+    # rubocop:enable Layout/LineLength
     actual = HexletCode.form_for @user, url: "#" do |f|
       f.input :name, class: "user-input"
       f.input :job
@@ -46,7 +50,9 @@ class TestHexletCode < Minitest::Test
   end
 
   def test_that_default_values_can_be_overridden
+    # rubocop:disable Layout/LineLength
     expected = "<form action=\"#\" method=\"post\"><label for=\"job\">Job</label><textarea cols=\"50\" rows=\"50\" name=\"job\">Hexlet</textarea></form>"
+    # rubocop:enable Layout/LineLength
     actual = HexletCode.form_for @user, url: "#" do |f|
       f.input :job, as: :text, rows: 50, cols: 50
     end
