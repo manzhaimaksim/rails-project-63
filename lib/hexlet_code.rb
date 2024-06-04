@@ -4,8 +4,8 @@ require_relative "hexlet_code/version"
 
 # module HexletCode for generating tags
 module HexletCode
-  autoload(:Tag, "./lib/tag.rb")
-  autoload(:FormContent, "./lib/form_content.rb")
+  autoload(:Tag, "lib/tag.rb")
+  autoload(:FormContent, "lib/form_content.rb")
 
   def self.form_for(fields_data = {}, attributes = {})
     url = (attributes.is_a?(Hash) ? attributes.fetch(:url, "#") : attributes)
