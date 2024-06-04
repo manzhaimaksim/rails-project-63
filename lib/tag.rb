@@ -8,7 +8,7 @@ module HexletCode
         "#{key}=\"#{value}\""
       end.join(' ')
       attrs = attrs.empty? ? '' : " #{attrs}"
-      "<#{tag}#{attrs}#{block_given? ? ">#{yield}</#{tag}>" : " />"}"
+      "<#{tag}#{attrs}#{block_given? ? ">#{yield}</#{tag}>" : ' />'}"
     end
   end
 end
