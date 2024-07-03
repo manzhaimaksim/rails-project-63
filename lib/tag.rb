@@ -1,14 +1,21 @@
 # frozen_string_literal: true
 
-# module Tag for generating tags
 module HexletCode
   module Tag
+    SINGLE_TAGS = %w[input img br].freeze
+
     def self.build(tag, attributes = {})
-      attrs = attributes.map do |key, value|
-        "#{key}=\"#{value}\""
-      end.join(' ')
-      attrs = attrs.empty? ? '' : " #{attrs}"
-      "<#{tag}#{attrs}#{block_given? ? ">#{yield}</#{tag}>" : ' />'}"
+      tag_attributes = convert_attributes(attributes)
+      return "<#{tag}#{tag_attributes}>" if SINGLE_TAGS.include?(tag)
+
+      body = yield if block_given?
+      "<#{tag}#{tag_attributes}>#{body}</#{tag}>"
+    end
+
+    def self.convert_attributes(attributes)
+      attributes.map do |key, value|
+        " #{key}=\"#{value}\""
+      end.join('')
     end
   end
 end
