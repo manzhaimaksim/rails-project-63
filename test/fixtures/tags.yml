@@ -1,0 +1,6 @@
+single_tag: '<br>'
+single_tag_with_an_attribute: '<img src="path/to/image">'
+single_tag_with_attributes: '<input type="submit" value="Save">'
+paired_tag_with_a_block: '<label>Email</label>'
+paired_tag_with_attributes_and_a_block: '<label for="email">Email</label>'
+paired_tag: '<div></div>'

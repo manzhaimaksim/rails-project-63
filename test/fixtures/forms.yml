@@ -1,0 +1,5 @@
+form_without_url: '<form action="#" method="post"></form>'
+form_with_url: '<form action="/users" method="post"></form>'
+form_with_fields: '<form action="#" method="post"><label for="name">Name</label><input type="text" name="name" value="rob" /><label for="job">Job</label><textarea cols="20" rows="40" name="job">Hexlet</textarea></form>'
+form_with_arguments: '<form action="#" method="post"><label for="name">Name</label><input type="text" class="user-input" name="name" value="rob" /><label for="job">Job</label><input type="text" name="job" value="Hexlet" /></form>'
+form_with_default_values: '<form action="#" method="post"><label for="job">Job</label><textarea cols="50" rows="50" name="job">Hexlet</textarea></form>'
