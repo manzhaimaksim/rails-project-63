@@ -20,14 +20,14 @@ class TestHexletCode < Minitest::Test
 
   def test_that_form_is_created_with_url
     expected = '<form action="/users" method="post"></form>'
-    actual = HexletCode.form_for @user, url: '/users'
+    actual = HexletCode.form_for @user, action: '/users'
 
     assert_equal(expected, actual)
   end
 
   def test_that_the_passed_fields_are_generated
     # rubocop:disable Layout/LineLength
-    expected = '<form action="#" method="post"><label for="name">Name</label><input type="text" name="name" value="rob" /><label for="job">Job</label><textarea cols="20" rows="40" name="job">Hexlet</textarea></form>'
+    expected = '<form action="#" method="post"><label for="name">Name</label><input type="text" name="name" value="rob"><label for="job">Job</label><textarea cols="20" rows="40" name="job">Hexlet</textarea></form>'
     # rubocop:enable Layout/LineLength
     actual = HexletCode.form_for @user do |f|
       f.input :name
@@ -39,7 +39,7 @@ class TestHexletCode < Minitest::Test
 
   def test_that_additional_arguments_can_be_passed_as_a_hash
     # rubocop:disable Layout/LineLength
-    expected = '<form action="#" method="post"><label for="name">Name</label><input type="text" class="user-input" name="name" value="rob" /><label for="job">Job</label><input type="text" name="job" value="Hexlet" /></form>'
+    expected = '<form action="#" method="post"><label for="name">Name</label><input type="text" class="user-input" name="name" value="rob"><label for="job">Job</label><input type="text" name="job" value="Hexlet"></form>'
     # rubocop:enable Layout/LineLength
     actual = HexletCode.form_for @user, url: '#' do |f|
       f.input :name, class: 'user-input'
@@ -57,6 +57,31 @@ class TestHexletCode < Minitest::Test
       f.input :job, as: :text, rows: 50, cols: 50
     end
 
+    assert_equal(expected, actual)
+  end
+
+  def test_that_submit_button_is_generated
+    # rubocop:disable Layout/LineLength
+    expected = '<form action="#" method="post"><label for="name">Name</label><input type="text" name="name" value="rob"><label for="job">Job</label><input type="text" name="job" value="Hexlet"><input type="submit" value="Save"></form>'
+    # rubocop:enable Layout/LineLength
+    actual = HexletCode.form_for @user do |f|
+      f.input :name
+      f.input :job
+      f.submit
+    end
+
+    assert_equal(expected, actual)
+  end
+
+  def test_that_submit_button_is_generated_with_text
+    # rubocop:disable Layout/LineLength
+    expected = '<form action="#" method="post"><label for="name">Name</label><input type="text" name="name" value="rob"><label for="job">Job</label><input type="text" name="job" value="Hexlet"><input type="submit" value="Wow"></form>'
+    # rubocop:enable Layout/LineLength
+    actual = HexletCode.form_for @user, url: '#' do |f|
+      f.input :name
+      f.input :job
+      f.submit 'Wow'
+    end
     assert_equal(expected, actual)
   end
 end
