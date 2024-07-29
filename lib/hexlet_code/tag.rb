@@ -7,7 +7,6 @@ module HexletCode
     def self.build(tag, attributes = {})
       tag_attributes = convert_attributes(attributes)
       return "<#{tag}#{tag_attributes}>" if SINGLE_TAGS.include?(tag)
-
       body = yield if block_given?
       "<#{tag}#{tag_attributes}>#{body}</#{tag}>"
     end
