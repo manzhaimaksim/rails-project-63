@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './lib/hexlet_code/version'
+require 'hexlet_code/version'
 
 module HexletCode
   autoload :Tag, 'hexlet_code/tag.rb'
@@ -11,7 +11,6 @@ module HexletCode
 
     form = Form.new(record)
     yield(form) if block_given?
-
     Tag.build('form', default_options.merge(options).except(:url)) { form.inputs.join('') }
   end
 end
