@@ -11,6 +11,7 @@ module HexletCode
 
     form = Form.new(record)
     yield(form) if block_given?
+
     Tag.build('form', default_options.merge(options).except(:url)) { form.inputs.join('') }
   end
 end
