@@ -15,7 +15,7 @@ module HexletCode
     def self.convert_attributes(attributes)
       attributes.map do |key, value|
         " #{key}=\"#{value}\""
-      end.join('')
+      end.join
     end
   end
 end
