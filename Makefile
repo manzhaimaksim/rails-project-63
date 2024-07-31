@@ -1,4 +1,6 @@
-.PHONY: test
+all: install lint test
+.PHONY: all
+
 install:
 	bundle install
 lint:
