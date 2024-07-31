@@ -1,3 +1,4 @@
+.PHONY: test
 install:
 	bundle install
 lint:
